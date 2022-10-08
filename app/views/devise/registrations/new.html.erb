@@ -3,7 +3,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
 <div class="form-group">
-    <%= f.label "Имя", class: "col-sm-2 control-label" %>
+    <%= f.label :name, "Имя", class: "col-sm-2 control-label" %>
     <div class="col-sm-3 buffer-bottom">
         <%= f.text_field :name, class: "form-control",autofocus: true %>
     </div>
