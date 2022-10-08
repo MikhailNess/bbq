@@ -13,9 +13,11 @@
   <body>
     <%= render '/partials/nav' %>
 
-    <div class="container">
-      <p id="notice"><%= notice %></p>
-    </div>
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info d-flex align-items-center">
+      <%= msg %>
+      </div>
+    <% end %>
 
     <div class="container">
       <%= yield %>
