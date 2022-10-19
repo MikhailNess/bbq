@@ -1,25 +1,129 @@
 ru:
-  activrecord:
+  activerecord:
     models:
-      user: 'Пользователь'
-      event: 'Событие'
-      attributes:
-        user:
-          email: 'Email'
-          name: 'Имя'
-          password: 'Пароль'
-          password_confirmation: 'Подтверждение пароля'
-        event:
-          title: 'Название'
-          address: 'Место проведения'
-          datetime: 'Дата и время'
-          description: 'Описание'
+      user: "Пользователь"
+      event: "Событие"
+      photo: "Фотография"
+
+    attributes:
+      user:
+        email: "Email"
+        name: "Имя"
+        avatar: "Аватарка"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+      event:
+        title: "Название"
+        address: "Место проведения"
+        datetime: "Дата и время"
+        description: "Описание"
+      photo:
+        photo: "Фотография"
+
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              email_registered: "Пользователь с указанным e-mail существует, войдите в аккаунт, чтобы подписаться на событие"
+            user_id:
+              owner: "Вы не можете подписаться на свое событие"
+
   controllers:
     events:
-      created: 'Событие было успешно создано'
-      updated: 'Событие было успешно обновлено'
-      destroyed: 'Событие  было удалено!'
+      created: "Вы создали новое событие"
+      updated: "Вы обновили событие"
+      destroyed: "Вы удалили событие"
+      wrong_pincode: "Введет неверный пинкод, попробуйте еще раз"
+
     users:
-      updated: 'Вы обновили свой профиль'
-    app:
-      name: 'Шашлыки'
+      updated: "Вы обновили свой профиль"
+
+    comments:
+      created: "Комментарий успешно создан"
+      destroyed: "Комментарий удален"
+      errors:
+        creating: "При добавлении комментария возникла ошибка"
+        deleting: "При удалении комментария возникла ошибка"
+
+    subscriptions:
+      created: "Вы подписаны на это событие"
+      destroyed: "Вы отписались от этого события"
+      errors:
+        create: "Подписка не сработала"
+        destroy: "Отписка не сработала"
+      subscription:
+        destroy_confirm: "Точно хотите отписться от события?"
+
+    photos:
+      error: "С фото что-то не так"
+      created: "Вы добавили фотографию к событию"
+      destroyed: "Вы удалили фото"
+
+  comments:
+      comment:
+        destroy_confirm: "Точно удалить этот комментарий?"
+      new: "Новый комментарий #{@event.title}"
+
+  subscriptions:
+    subscription:
+      destroy_confirm: "Точно хотите отписться от события?"
+
+  lables:
+    sign_up: "Регистрация"
+    sign_in: "Вход"
+    forgot_password: "Забыли пароль?"
+    event_new: "Создать событие"
+    event_edit: "Редактировать событие"
+    change_password: "Смена пароля"
+    to_change_password: "Сменить пароль"
+
+  app:
+    name: "шашлыки"
+    delete: "Удалить "
+  err:
+    one: "%{count} ошибка"
+    few: "%{count} ошибки"
+    many: "%{count} ошибок"
+
+  confirmation:
+    event_delete: "Вы уверены, что хотите удалить событие?"
+    photo_delete: "Вы уверены, что хотите удалить эту фотографию?"
+
+  event_mailer:
+    comment:
+      title: "Новый комментарий"
+      author: "Автор"
+      event: "Событие"
+      datetime: "Состоится"
+      owner: "Организатор"
+      subject: "Новый комментарий @ %{title}"
+    subscription:
+      title: "Новая подписка"
+      name: "Имя"
+      email: "Email"
+      author: "Автор"
+      event: "Событие"
+      datetime: "Состоится"
+      owner: "Организатор"
+      subject: "Новая подписка на %{title}"
+    photo:
+      title: "Новая фотография"
+      email: "Email"
+      author: "Автор"
+      event: "Событие"
+      datetime: "Состоится"
+      owner: "Организатор"
+      subject: "Новая фотография @ %{title}"
+
+  event:
+    pincode: "Код доступа"
+
+  lightbox:
+    label: "Добавил"
+
+  pundit:
+    not_authorized: "Данное действие недоступно для Вас"
+
+  buttons:
+    oauth_sign_up: "Войти через %{provider}"

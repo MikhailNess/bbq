@@ -8,6 +8,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @new_comment = @event.comments.build(params[:comment])
+    @new_subscription = @event.subscriptions.build(params[:subscription])
   end
 
   def new
@@ -54,3 +56,4 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :address, :datetime, :description)
   end
 end
+
