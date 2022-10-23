@@ -1,5 +1,5 @@
 <div class="event">
-  <div class="event-info row">
+  <div class="event-info row mt-2 m-1">
     <div class="col-md-12">
       <%= content_tag 'div', '', class: 'event-background',
         style: "background-image: url(#{asset_path('event.jpg')})" %>
@@ -32,7 +32,7 @@
   </div>
 
 <div class="row">
-   <div class="col-md-8">
+   <div class="col-md-6 mb-2">
     <div class="event-comments buffer-top">
         <%= render partial: "comments/form",
           locals: { comment: @new_comment || @event.comments.build } %>
@@ -45,7 +45,7 @@
     </div>
 
       <div class="col-md-4">
-        <div class="event-owner">
+        <div class="event-owner mb-2">
         <h4>Зовет:</h4>
           <p><%= render partial: "users/user", object: @event.user %></p>
         </div>

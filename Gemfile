@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '3.1.2'
+gem "importmap-rails"
 gem 'devise'
 gem 'devise-i18n'
-gem "rails-i18n"
-gem "font-awesome-rails"
+gem 'rails-i18n'
+gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'rmagick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
 # Use sqlite3 as the database for Active Record

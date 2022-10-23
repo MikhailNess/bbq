@@ -1,6 +1,7 @@
-<div class="buffer-bottom mb-2">
+<div class="buffer-bottom">
   <p><%= comment.body %></p>
-  <p><span>
+  <p>
+    <span>
       <% if comment.user.present? %>
         <%= render partial: "users/user", object: comment.user %>
       <% else %>
@@ -13,7 +14,7 @@
       <% if current_user_can_edit?(comment) %>
         <div class="buffer-top mt-0">
           <%= button_to t('app.delete'), event_comment_path(comment.event, comment), class: 'btn btn-danger text-sm',
-                        method: :delete, data: {confirm: t('notifications.delete_my_comment')} %>
+                        method: :delete, data: { confirm: t(".destroy_confirm")} %>
         </div>
       <% end %>
     </div>
