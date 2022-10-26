@@ -1,5 +1,6 @@
 <%= form_with(model: user, html: {multipart: true}) do |form| %>
   <%= render partial: "partials/form_errors", locals: {model: @user} %>
+
   <div class="mt-3">
     <%= form.label :name, "Имя", class: "form-label text-primary h4" %>
     <%= form.text_field :name, class: "form-control", autofocus: false  %>

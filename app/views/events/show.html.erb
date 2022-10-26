@@ -1,11 +1,11 @@
 <div class="event">
   <div class="event-info row mt-2 m-1">
     <div class="col-md-12">
-      <%= content_tag 'div', '', class: 'event-background',
-        style: "background-image: url(#{asset_path('event.jpg')})" %>
-
+      <%= content_tag "div", "", class: "event-background",
+        style: "background-image: url(#{event_photo(@event)})" %>
       <div class="event-info-inner row">
         <div class="col-md-6">
+
           <div class="event-description">
             <h1><%= @event.title %></h1>
             <h3><%= l @event.datetime, format: :short %></h3>
@@ -30,9 +30,21 @@
       </div>
     </div>
   </div>
+</div>
 
 <div class="row">
-   <div class="col-md-6 mb-2">
+   <div class="col-md-6">
+
+        <div class="event-photo-form">
+        <%= render partial: "photos/form", locals: {photo: @new_photo || @event.photos.build} %>
+        </div>
+
+        <div class="event-photos row buffer-both">
+        <div class="event-photos-gallery">
+          <%= render partial: "photos/photo", collection: @event.photos.except(@new_photo) %>
+        </div>
+      </div>
+
     <div class="event-comments buffer-top">
         <%= render partial: "comments/form",
           locals: { comment: @new_comment || @event.comments.build } %>
@@ -44,8 +56,8 @@
       </div>
     </div>
 
-      <div class="col-md-4">
-        <div class="event-owner mb-2">
+      <div class="col-md-6">
+        <div class="event-owner mb-2 mt-2">
         <h4>Зовет:</h4>
           <p><%= render partial: "users/user", object: @event.user %></p>
         </div>

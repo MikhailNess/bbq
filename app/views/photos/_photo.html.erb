@@ -1,0 +1,22 @@
+<div class="row mt-2 ">
+  <div class=" col-sm-8 ">
+    <%= image_tag photo.photo.url , class:"img-thumbnail" %>
+  </div>
+
+  <div class="col-sm-4">
+    <div >
+      <a href="<%= user_path(photo.user) %>">
+        <img src="<%= user_avatar(photo.user) %>" class="img-icon rounded-circle">
+      </a>
+    </div>
+
+    <p>
+      <a href="<%= user_path(photo.user) %>"><%= photo.user.name %></a>
+    </p>
+  </div>
+
+  <% if current_user_can_edit?(photo) %>
+    <%= button_to I18n.t("app.delete"), event_photo_path(photo.event, photo), method: :delete, class: "btn btn-danger mt-2",
+      form: { data: { turbo_confirm: I18n.t("actions.confirmation") }} %>
+  <% end %>
+</div>

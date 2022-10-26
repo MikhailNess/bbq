@@ -8,7 +8,7 @@
         <em><strong><%= comment.user_name %></strong></em>
       <% end %>
     </span>
-    <em><%= l comment.created_at, format: :short %></em>
+    <em class="registration-label"><%= l comment.created_at, format: :short %></em>
 
      <div class="align-self-end ms-auto p-2 bd-highlight">
       <% if current_user_can_edit?(comment) %>

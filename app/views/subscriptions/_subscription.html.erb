@@ -8,7 +8,7 @@
     <div class="mt-4">
        <%= button_to 'Отписаться',
                      event_subscription_path(subscription.event, subscription),
-                     method: :delete, class: 'btn btn-danger text-sm',
+                     method: :delete, class: 'btn btn-danger text-sm registration-label',
                      data: {confirm: t('.destroy_confirm')} %>
     </div>
   <% end %>
